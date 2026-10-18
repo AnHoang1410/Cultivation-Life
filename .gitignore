@@ -1,0 +1,16 @@
+# Moi truong Python
+.venv/
+__pycache__/
+*.pyc
+
+# Cau hinh rieng chua API key - khong duoc day len kho ma nguon
+config/
+
+# Du lieu game cuc bo
+data/*.db
+data/*.db-wal
+data/*.db-shm
+data/server_port.txt
+
+# Log
+*.log

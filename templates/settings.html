@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Cài đặt AI — Tiên Đồ Vạn Kiếp</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<div class="saves-wrap settings-wrap">
+  <h1 class="game-title">Cài đặt AI</h1>
+  <p class="game-subtitle">Trò chơi dùng API tương thích OpenAI Chat Completions của nhà cung cấp ngươi chọn</p>
+  <div class="panel">
+    <form id="ai-form" autocomplete="off">
+      <label>Tên nhà cung cấp (tùy chọn)
+        <input id="cfg-provider" placeholder="Ví dụ: nhà cung cấp AI của tôi">
+      </label>
+      <label>API Base URL
+        <input id="cfg-base" placeholder="Ví dụ: https://dia-chi-api.com/v1" required>
+      </label>
+      <p class="hint">Quy tắc: nếu địa chỉ đã kết thúc bằng /v1 (hoặc /v2, /v3...) hệ thống sẽ tự nối
+        /chat/completions. Nếu đã kết thúc bằng /chat/completions thì dùng nguyên văn.
+        Không tự ý thay đổi địa chỉ ngươi nhập.</p>
+      <label>API Key
+        <input id="cfg-key" type="password" placeholder="Dán API key của ngươi vào đây">
+      </label>
+      <p class="hint" id="key-hint">Key được lưu trong file riêng trên máy của ngươi, chỉ backend sử dụng.</p>
+      <label>Model ID
+        <input id="cfg-model" placeholder="Tên model chính xác do nhà cung cấp hỗ trợ" required>
+      </label>
+      <label>Temperature
+        <input id="cfg-temp" type="number" step="0.1" min="0" max="2" value="0.9">
+      </label>
+      <label>Giới hạn độ dài phản hồi (max tokens)
+        <input id="cfg-tokens" type="number" min="120" max="4000" value="700">
+      </label>
+      <div class="row">
+        <button type="submit" class="btn gold">Lưu cài đặt</button>
+        <button type="button" id="btn-test" class="btn jade">Kiểm tra kết nối</button>
+        <a href="/" class="btn ghost">Về màn hình game</a>
+      </div>
+      <p id="cfg-status" class="hint"></p>
+      <p id="test-result"></p>
+    </form>
+  </div>
+</div>
+<div id="toast" class="hidden"></div>
+<script src="/static/js/game.js"></script>
+<script src="/static/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tiên Đồ Vạn Kiếp</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<section id="screen-saves" class="screen">
+  <div class="saves-wrap">
+    <h1 class="game-title">Tiên Đồ Vạn Kiếp</h1>
+    <p class="game-subtitle">Một đời tu tiên, vạn kiếp trần luân</p>
+    <div class="panel saves-list-panel">
+      <h2>Nhân vật của ngươi</h2>
+      <div id="saves-list"></div>
+    </div>
+    <div class="panel create-panel">
+      <h2>Tạo nhân vật mới</h2>
+      <form id="create-form" autocomplete="off">
+        <label>Tên nhân vật
+          <input id="in-name" maxlength="40" placeholder="Ví dụ: Lâm Thanh Phong" required>
+        </label>
+        <label>Giới tính
+          <select id="in-gender">
+            <option value="Nam">Nam</option>
+            <option value="Nữ">Nữ</option>
+            <option value="Khác">Khác</option>
+          </select>
+        </label>
+        <label>Thân phận xuất thân
+          <select id="in-origin"></select>
+        </label>
+        <p id="origin-desc" class="hint"></p>
+        <button type="submit" class="btn gold">Khởi đầu một đời tu tiên</button>
+      </form>
+    </div>
+    <p class="hint">Để có biến cố do AI sáng tạo, hãy cấu hình AI trong <a href="/settings">Cài đặt AI</a>.</p>
+  </div>
+</section>
+
+<section id="screen-game" class="screen hidden">
+  <header id="topbar">
+    <div class="tb-left">
+      <span id="tb-name" class="tb-name">—</span>
+      <span id="tb-age" class="chip">Tuổi —</span>
+      <span id="tb-realm" class="chip realm">—</span>
+      <span id="tb-life" class="chip">Thọ nguyên —</span>
+      <span id="tb-ai" class="chip warn hidden">AI chưa cấu hình</span>
+    </div>
+    <div class="tb-right">
+      <span id="tb-save" class="save-state">—</span>
+      <a href="/settings" class="btn small ghost">Cài đặt AI</a>
+      <button id="btn-menu" class="btn small ghost">Nhân vật</button>
+      <button id="btn-advance" class="btn gold big">Bế quan / Tiến thời gian (+1 năm)</button>
+    </div>
+  </header>
+  <main id="layout">
+    <aside id="col-left" class="panel">
+      <div class="avatar">仙</div>
+      <h2 id="pf-name">—</h2>
+      <p id="pf-origin" class="hint">—</p>
+      <dl id="pf-stats"></dl>
+      <div id="pf-cultivation"></div>
+      <div id="pf-bars"></div>
+      <div id="pf-faction"></div>
+    </aside>
+    <section id="col-center">
+      <div id="story-box" class="panel">
+        <div id="story-content">
+          <p class="hint">Chọn một hành động hoặc tiến thời gian để bắt đầu đời tu tiên của ngươi.</p>
+        </div>
+      </div>
+      <div id="action-panel" class="panel">
+        <div id="action-tabs"></div>
+        <div id="action-buttons"></div>
+        <form id="free-form" autocomplete="off">
+          <input id="free-input" maxlength="300"
+                 placeholder="Hoặc mô tả hành động bất kỳ, ví dụ: Đến phường thị tìm mua Trúc Cơ Đan">
+          <button type="submit" class="btn jade">Thực hiện</button>
+        </form>
+      </div>
+    </section>
+    <aside id="col-right">
+      <div class="panel">
+        <h2>Tài sản</h2>
+        <div id="currency-box"></div>
+      </div>
+      <div class="panel">
+        <h2>Túi đồ</h2>
+        <div id="inventory-box" class="scroll"></div>
+      </div>
+      <div class="panel">
+        <h2>Quan hệ</h2>
+        <div id="npc-box" class="scroll"></div>
+      </div>
+      <div class="panel">
+        <h2>Thế lực</h2>
+        <div id="faction-box" class="scroll"></div>
+      </div>
+    </aside>
+  </main>
+  <section id="log-panel" class="panel">
+    <h2>Nhật ký cuộc đời</h2>
+    <div id="log-box" class="scroll"></div>
+  </section>
+</section>
+
+<div id="death-overlay" class="overlay hidden">
+  <div class="overlay-card">
+    <h2>Đạo hữu đã trở về với cát bụi</h2>
+    <p id="death-text"></p>
+    <button id="btn-death-log" class="btn jade">Xem lại nhật ký cuộc đời</button>
+    <button id="btn-death-menu" class="btn gold">Chọn nhân vật khác</button>
+  </div>
+</div>
+
+<div id="toast" class="hidden"></div>
+<script src="/static/js/game.js"></script>
+<script src="/static/js/app.js"></script>
+</body>
+</html>
